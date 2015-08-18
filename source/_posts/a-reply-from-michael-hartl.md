@@ -13,7 +13,7 @@ tags:
 
 <!-- more -->
 
-![来自《RailsTutorial》作者 Michael Hartl 的回信](http://i683.photobucket.com/albums/vv200/howiehucn/MyBlogImages/RailsTutorialEmail.png)
+![来自《RailsTutorial》作者 Michael Hartl 的回信](http://7xl6nt.com1.z0.glb.clouddn.com/image/RailsTutorialEmail.PNG)
 
 说实话这封信和这件事情虽然简单，但是依然让我激动不已，因为这是我拥抱开源世界以来再一次感受到了社区的开放、平等、自由和分享的精神。
 

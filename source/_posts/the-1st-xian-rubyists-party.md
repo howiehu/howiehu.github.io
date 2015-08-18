@@ -11,7 +11,7 @@ tags:
 
 <!-- more -->
 
-![第一次西安Rubyist线下聚会](http://i683.photobucket.com/albums/vv200/howiehucn/MyBlogImages/Rubyists7B2C4E006B217EBF4E0B6D3B52A8008.jpg "第一次西安Rubyist线下聚会")
+![第一次西安Rubyist线下聚会](http://7xl6nt.com1.z0.glb.clouddn.com/image/Rubyists7B2C4E006B217EBF4E0B6D3B52A8008.JPG "第一次西安Rubyist线下聚会")
 
 以下是活动的相关内容：
 

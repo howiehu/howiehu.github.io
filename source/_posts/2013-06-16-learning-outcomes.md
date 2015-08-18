@@ -31,4 +31,4 @@ tags:
 
 另外，附带我的 **Code School Report Card** 截图：
 
-![My Code School Report Card](http://i683.photobucket.com/albums/vv200/howiehucn/MyBlogImages/QQ20130616-2.png)
+![My Code School Report Card](http://7xl6nt.com1.z0.glb.clouddn.com/image/QQ20130616-2.PNG)

@@ -32,7 +32,7 @@ tags:
 
 随后，我在学习和写代码的过程中，强制要求自己尽可能的使用Vim。到现在为止，我已经能够熟练的使用Vim，并且在自己寻找的一堆Vim插件的帮助下，高效的进行Ruby on Rails开发了，这里秀一下我现在写代码时的屏幕：
 
-![My Vim Editor](http://i683.photobucket.com/albums/vv200/howiehucn/MyBlogImages/5C4F5E555FEB71672013-12-134E0B534890029.jpg "My Vim Editor")
+![My Vim Editor](http://7xl6nt.com1.z0.glb.clouddn.com/image/5C4F5E555FEB71672013-12-134E0B534890029.JPG "My Vim Editor")
 
 **总结一下使用Vim的好处：**
 
@@ -95,7 +95,7 @@ RubyConf China 2013是中国Rubyist在2013年的一次最重要的聚会，我�
 
 **在 RubyConf China 2013 的签售活动上比较幸运的排在第一位与 Dave Thomas 合影留念：**
 
-![2013年10月27日 RubyConfChina 2013 与 Dave Thomas 签售合影](http://i683.photobucket.com/albums/vv200/howiehucn/MyBlogImages/DSC_0811.jpg "2013年10月27日 RubyConfChina 2013 与 Dave Thomas 签售合影")
+![2013年10月27日 RubyConfChina 2013 与 Dave Thomas 签售合影](http://7xl6nt.com1.z0.glb.clouddn.com/image/DSC_0811.JPG "2013年10月27日 RubyConfChina 2013 与 Dave Thomas 签售合影")
 
 ### 6. 深入学习Ruby on Rails
 
