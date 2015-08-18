@@ -70,7 +70,7 @@ theme: landscape
 deploy:
   type: github
   repo: git@github.com:howiehu/howiehu.github.io.git
-  branch: master
+  branch: gh-pages
 
 # Disqus
 disqus_shortname: huhao
