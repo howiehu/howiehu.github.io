@@ -79,6 +79,10 @@ disqus_shortname: huhao
 sitemap:
   path: sitemap.xml
 
+# Baidu
+baidusitemap:
+  path: baidusitemap.xml
+
 # Feed
 feed:
   type: atom
