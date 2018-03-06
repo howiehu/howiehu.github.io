@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '109858278973317070000', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Vim官方教程Vimtutor“精简版” | From Soldier to Programmer - 胡皓的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="这是我在学习Vim官方自带的vimtutor教程时，顺手将每个小结节选下来的Vim官方教程“精编版”，顺便用Markdown重新排版了一下，发现其实这也是个不错的参考资料，给广大Vim同好参考用吧。 另外，针对搞Rails的开发环境和学习途径： 初学者建议直接用Janus，所有但凡你能用到的都包括在里面了，比如rails.vim和vim-coffee-script，等你觉得不够用了的时候，也就基本">
+<meta name="keywords" content="Vim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim官方教程Vimtutor“精简版”">
+<meta property="og:url" content="http://blog.huhao.name/2013/09/08/mini-vimtutor/index.html">
+<meta property="og:site_name" content="From Soldier to Programmer - 胡皓的博客">
+<meta property="og:description" content="这是我在学习Vim官方自带的vimtutor教程时，顺手将每个小结节选下来的Vim官方教程“精编版”，顺便用Markdown重新排版了一下，发现其实这也是个不错的参考资料，给广大Vim同好参考用吧。 另外，针对搞Rails的开发环境和学习途径： 初学者建议直接用Janus，所有但凡你能用到的都包括在里面了，比如rails.vim和vim-coffee-script，等你觉得不够用了的时候，也就基本">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-06T07:59:23.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vim官方教程Vimtutor“精简版”">
+<meta name="twitter:description" content="这是我在学习Vim官方自带的vimtutor教程时，顺手将每个小结节选下来的Vim官方教程“精编版”，顺便用Markdown重新排版了一下，发现其实这也是个不错的参考资料，给广大Vim同好参考用吧。 另外，针对搞Rails的开发环境和学习途径： 初学者建议直接用Janus，所有但凡你能用到的都包括在里面了，比如rails.vim和vim-coffee-script，等你觉得不够用了的时候，也就基本">
+<meta name="twitter:creator" content="@howiehu">
+  
+    <link rel="alternate" href="/atom.xml" title="From Soldier to Programmer - 胡皓的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">From Soldier to Programmer - 胡皓的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">凡事 = 预 ? 立 : 废</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">存档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.huhao.name"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-mini-vimtutor" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/09/08/mini-vimtutor/" class="article-date">
+  <time datetime="2013-09-08T12:36:00.000Z" itemprop="datePublished">2013年09月08日</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/学习/">学习</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Vim官方教程Vimtutor“精简版”
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>这是我在学习Vim官方自带的vimtutor教程时，顺手将每个小结节选下来的Vim官方教程“精编版”，顺便用Markdown重新排版了一下，发现其实这也是个不错的参考资料，给广大Vim同好参考用吧。</p>
+<p>另外，针对搞Rails的开发环境和学习途径：</p>
+<p>初学者建议直接用<a href="https://github.com/carlhuda/janus" target="_blank" rel="noopener">Janus</a>，所有但凡你能用到的都包括在里面了，比如rails.vim和vim-coffee-script，等你觉得不够用了的时候，也就基本上可以上到更高一级台阶了。</p>
+<p>学习基本操作和rails.vim建议看<a href="http://vimgenius.com/" target="_blank" rel="noopener">VimGenius</a>。</p>
+<p>另外奉上 <a href="https://github.com/howiehu/vim_tutorials" target="_blank" rel="noopener">本人收集的学习资料和工具</a>。</p>
+<a id="more"></a>
+<h2 id="第一讲小结"><a href="#第一讲小结" class="headerlink" title="第一讲小结"></a>第一讲小结</h2><ol>
+<li><p>光标在屏幕文本中的移动既可以用箭头键，也可以使用 hjkl 字母键。</p>
+<p><code>h</code> (左移)    <code>j</code> (下行) <code>k</code> (上行) <code>l</code> (右移)</p>
+</li>
+<li><p>欲进入 Vim 编辑器(从命令行提示符)，请输入：</p>
+<p><code>vim 文件名 &lt;回车&gt;</code></p>
+</li>
+<li><p>欲退出 Vim 编辑器，请输入</p>
+<p><code>&lt;ESC&gt; :q! &lt;回车&gt;</code> 放弃所有改动。</p>
+<p>或者输入</p>
+<p><code>&lt;ESC&gt; :wq &lt;回车&gt;</code> 保存改动。</p>
+</li>
+<li><p>在正常模式下删除光标所在位置的字符，请按：<code>x</code></p>
+</li>
+<li><p>欲插入或添加文本，请输入：</p>
+<p><code>i 输入欲插入文本 &lt;ESC&gt;</code> 在光标前插入文本</p>
+<p><code>A 输入欲添加文本 &lt;ESC&gt;</code> 在一行后添加文本</p>
+</li>
+</ol>
+<p>特别提示：按下 <code>&lt;ESC&gt;</code> 键会带您回到正常模式或者撤消一个不想输入或部分完整<br>的命令。</p>
+<h2 id="第二讲小结"><a href="#第二讲小结" class="headerlink" title="第二讲小结"></a>第二讲小结</h2><ol>
+<li><p>欲从当前光标删除至下一个单词，请输入：<code>dw</code></p>
+</li>
+<li><p>欲从当前光标删除至当前行末尾，请输入：<code>d$</code></p>
+</li>
+<li><p>欲删除整行，请输入：<code>dd</code></p>
+</li>
+<li><p>欲重复一个动作，请在它前面加上一个数字：<code>2w</code></p>
+</li>
+<li><p>在正常模式下修改命令的格式是：</p>
+<p><code>operator [number] motion</code></p>
+<p>其中：</p>
+<p><code>operator</code> - 操作符，代表要做的事情，比如 d 代表删除</p>
+<p><code>[number]</code> - 可以附加的数字，代表动作重复的次数</p>
+<p><code>motion</code>   - 动作，代表在所操作的文本上的移动，例如 <code>w</code> 代表单词(word)，<code>$</code> 代表行末等等。</p>
+</li>
+<li><p>欲移动光标到行首，请按数字0键：<code>0</code></p>
+</li>
+<li><p>欲撤消以前的操作，请输入：<code>u</code> (小写的u)</p>
+<p>欲撤消在一行中所做的改动，请输入：<code>U</code> (大写的U)</p>
+<p>欲撤消以前的撤消命令，恢复以前的操作结果，请输入：<code>CTRL-R</code></p>
+</li>
+</ol>
+<h2 id="第三讲小结"><a href="#第三讲小结" class="headerlink" title="第三讲小结"></a>第三讲小结</h2><ol>
+<li><p>要重新置入已经删除的文本内容，请按小写字母 <code>p</code> 键。该操作可以将已删除的文本内容置于光标之后。如果最后一次删除的是一个整行，那么该行将置<br>于当前光标所在行的下一行。</p>
+</li>
+<li><p>要替换光标所在位置的字符，请输入小写的 <code>r</code> 和要替换掉原位置字符的新字<br>符即可。</p>
+</li>
+<li><p>更改类命令允许您改变从当前光标所在位置直到动作指示的位置中间的文本。</p>
+<p>比如输入 <code>ce</code> 可以替换当前光标到单词的末尾的内容；</p>
+<p>输入 <code>c$</code> 可以替换当前光标到行末的内容。</p>
+</li>
+<li><p>更改类命令的格式是：</p>
+<p><code>c [number] motion</code></p>
+</li>
+</ol>
+<h2 id="第四讲小结"><a href="#第四讲小结" class="headerlink" title="第四讲小结"></a>第四讲小结</h2><ol>
+<li><p><code>CTRL-G</code> 用于显示当前光标所在位置和文件状态信息。</p>
+<p><code>G</code> 用于将光标跳转至文件最后一行。</p>
+<p>先敲入一个行号然后输入大写 <code>G</code> 则是将光标移动至该行号代表的行。</p>
+<p><code>gg</code> 用于将光标跳转至文件第一行。</p>
+</li>
+<li><p>输入 <code>/</code> 然后紧随一个字符串是在当前所编辑的文档中正向查找该字符串。</p>
+<p>输入 <code>?</code> 然后紧随一个字符串则是在当前所编辑的文档中反向查找该字符串。</p>
+<p>完成一次查找之后按 <code>n</code> 键是重复上一次的命令，可在同一方向上查找下一个匹配字符串所在；</p>
+<p>或者按大写 <code>N</code> 向相反方向查找下一匹配字符串所在。</p>
+<p><code>CTRL-O</code> 带您跳转回较旧的位置，<code>CTRL-I</code> 则带您到较新的位置。</p>
+</li>
+<li><p>如果光标当前位置是括号(、)、[、]、{、}，按 <code>%</code> 会将光标移动到配对的括号上。</p>
+</li>
+<li><p>在一行内替换头一个字符串 old 为新的字符串 new，请输入 <code>:s/old/new</code></p>
+<p>在一行内替换所有的字符串 old 为新的字符串 new，请输入 <code>:s/old/new/g</code></p>
+<p>在两行内替换所有的字符串 old 为新的字符串 new，请输入 <code>:#,#s/old/new/g</code></p>
+<p>在文件内替换所有的字符串 old 为新的字符串 new，请输入 <code>:%s/old/new/g</code></p>
+<p>进行全文替换时询问用户确认每个替换需添加 c 标志 <code>:%s/old/new/gc</code></p>
+</li>
+</ol>
+<h2 id="第五讲小结"><a href="#第五讲小结" class="headerlink" title="第五讲小结"></a>第五讲小结</h2><ol>
+<li><p><code>:!command</code> 用于执行一个外部命令 command。</p>
+<p>请看一些实际例子：</p>
+<p> <code>:!dir</code> (MS-DOS) <code>:!ls</code> (Unix) - 用于显示当前目录的内容。</p>
+<p> <code>:!del FILENAME</code> (MS-DOS) <code>:!rm FILENAME</code> (Unix) - 用于删除名为 FILENAME 的文件。</p>
+</li>
+<li><p><code>:w FILENAME</code> 可将当前 VIM 中正在编辑的文件保存到名为 FILENAME 的文<br>件中。</p>
+</li>
+<li><p><code>v motion :w FILENAME</code> 可将当前编辑文件中可视模式下选中的内容保存到文件<br>FILENAME 中。</p>
+</li>
+<li><p><code>:r FILENAME</code> 可提取磁盘文件 FILENAME 并将其插入到当前文件的光标位置<br>后面。</p>
+</li>
+<li><p><code>:r !dir</code> 可以读取 dir 命令的输出并将其放置到当前文件的光标位置后面。</p>
+</li>
+</ol>
+<h2 id="第六讲小结"><a href="#第六讲小结" class="headerlink" title="第六讲小结"></a>第六讲小结</h2><ol>
+<li><p>输入小写的 <code>o</code> 可以在光标下方打开新的一行并进入插入模式。</p>
+<p>输入大写的 <code>O</code> 可以在光标上方打开新的一行。</p>
+</li>
+<li><p>输入小写的 <code>a</code> 可以在光标所在位置之后插入文本。</p>
+<p>输入大写的 <code>A</code> 可以在光标所在行的行末之后插入文本。</p>
+</li>
+<li><p><code>e</code> 命令可以使光标移动到单词末尾。</p>
+</li>
+<li><p>操作符 <code>y</code> 复制文本，<code>p</code> 粘贴先前复制的文本。</p>
+</li>
+<li><p>输入大写的 <code>R</code> 将进入替换模式，直至按 <code>&lt;ESC&gt;</code> 键回到正常模式。</p>
+</li>
+<li><p>输入 <code>:set xxx</code> 可以设置 xxx 选项。一些有用的选项如下：</p>
+<p>  <code>ic</code> <code>ignorecase</code>    查找时忽略字母大小写</p>
+<p><code>is</code> <code>incsearch</code> 查找短语时显示部分匹配</p>
+<p><code>hls</code> <code>hlsearch</code> 高亮显示所有的匹配短语</p>
+<p>选项名可以用完整版本，也可以用缩略版本。</p>
+</li>
+<li><p>在选项前加上 <code>no</code> 可以关闭选项：<code>:set noic</code></p>
+</li>
+</ol>
+<h2 id="第七讲小结"><a href="#第七讲小结" class="headerlink" title="第七讲小结"></a>第七讲小结</h2><ol>
+<li><p>输入 <code>:help</code> 或者按 <code>&lt;F1&gt;</code> 键或 <code>&lt;Help&gt;</code> 键可以打开帮助窗口。</p>
+</li>
+<li><p>输入 <code>:help cmd</code> 可以找到关于 cmd 命令的帮助。</p>
+</li>
+<li><p>输入 <code>CTRL-W CTRL-W</code>  可以使您在窗口之间跳转。</p>
+</li>
+<li><p>输入 <code>:q</code> 以关闭帮助窗口</p>
+</li>
+<li><p>您可以创建一个 vimrc 启动脚本文件用来保存您偏好的设置。</p>
+</li>
+<li><p>当输入 <code>:</code> 命令时，按 <code>CTRL-D</code> 可以查看可能的补全结果。<br>按 <code>&lt;TAB&gt;</code> 可以使用一个补全。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.huhao.name/2013/09/08/mini-vimtutor/" data-id="cjefeb8i9000i6zu6v3knigkp" class="article-share-link">分享</a>
+      
+        <a href="http://blog.huhao.name/2013/09/08/mini-vimtutor/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Vim/">Vim</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/09/14/become-a-freelancer/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          从士兵到程序员再到SOHO程序员 (一) - 起航
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/08/26/a-plan-for-soho/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">三个月家里蹲转型 Ruby on Rails + SOHO 计划</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ruby/">Ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/从士兵到程序员/">从士兵到程序员</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/聚会/">聚会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-School/">Code School</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Freelancer/">Freelancer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guard/">Guard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xi-an-Rubyists-Party/">Xi'an Rubyists Party</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生日/">生日</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Code-School/" style="font-size: 10px;">Code School</a> <a href="/tags/Freelancer/" style="font-size: 20px;">Freelancer</a> <a href="/tags/Guard/" style="font-size: 15px;">Guard</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Xi-an-Rubyists-Party/" style="font-size: 10px;">Xi'an Rubyists Party</a> <a href="/tags/生日/" style="font-size: 10px;">生日</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/11/markdown-writer-for-atom/">Markdown神器推荐：Markdown-Writer for Atom</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/04/from-octopress-to-hexo/">从Octopress到Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/24/age-30/">30岁</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/01/become-a-freelancer-3/">从士兵到程序员再到SOHO程序员 (三) - 游击战与阻力</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/13/become-a-freelancer-2/">从士兵到程序员再到SOHO程序员 (二) - 求职</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hao Hu (胡皓)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">存档</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'huhao';
+  
+  var disqus_url = 'http://blog.huhao.name/2013/09/08/mini-vimtutor/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

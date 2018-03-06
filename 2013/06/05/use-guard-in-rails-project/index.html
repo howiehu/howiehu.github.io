@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', '109858278973317070000', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>在Rails项目中使用Guard | From Soldier to Programmer - 胡皓的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Guard 是一个 Ruby 项目中非常著名且强大的“文件系统变更事件处理工具”，换句话说，就是能够监视任何文件系统的变化并允许你对相应变化进行处理。 Guard 能够兼容 Mac OS X、Linux 以及 Windows 三个平台，鉴于 Windows 平台在 RoR 社区是非主流，所以以下内容仅针对 Mac OS X 和 Linux 平台。">
+<meta name="keywords" content="Guard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Rails项目中使用Guard">
+<meta property="og:url" content="http://blog.huhao.name/2013/06/05/use-guard-in-rails-project/index.html">
+<meta property="og:site_name" content="From Soldier to Programmer - 胡皓的博客">
+<meta property="og:description" content="Guard 是一个 Ruby 项目中非常著名且强大的“文件系统变更事件处理工具”，换句话说，就是能够监视任何文件系统的变化并允许你对相应变化进行处理。 Guard 能够兼容 Mac OS X、Linux 以及 Windows 三个平台，鉴于 Windows 平台在 RoR 社区是非主流，所以以下内容仅针对 Mac OS X 和 Linux 平台。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-03-06T07:59:23.825Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Rails项目中使用Guard">
+<meta name="twitter:description" content="Guard 是一个 Ruby 项目中非常著名且强大的“文件系统变更事件处理工具”，换句话说，就是能够监视任何文件系统的变化并允许你对相应变化进行处理。 Guard 能够兼容 Mac OS X、Linux 以及 Windows 三个平台，鉴于 Windows 平台在 RoR 社区是非主流，所以以下内容仅针对 Mac OS X 和 Linux 平台。">
+<meta name="twitter:creator" content="@howiehu">
+  
+    <link rel="alternate" href="/atom.xml" title="From Soldier to Programmer - 胡皓的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">From Soldier to Programmer - 胡皓的博客</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">凡事 = 预 ? 立 : 废</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">存档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://blog.huhao.name"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-use-guard-in-rails-project" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2013/06/05/use-guard-in-rails-project/" class="article-date">
+  <time datetime="2013-06-05T02:31:00.000Z" itemprop="datePublished">2013年06月05日</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Ruby/">Ruby</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      在Rails项目中使用Guard
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://github.com/guard/guard" title="Guard on github" target="_blank" rel="noopener">Guard</a> 是一个 Ruby 项目中非常著名且强大的“文件系统变更事件处理工具”，换句话说，就是能够监视任何文件系统的变化并允许你对相应变化进行处理。</p>
+<p>Guard 能够兼容 Mac OS X、Linux 以及 Windows 三个平台，鉴于 Windows 平台在 RoR 社区是非主流，所以以下内容仅针对 Mac OS X 和 Linux 平台。</p>
+<a id="more"></a>
+<p>首先，在 Gemfile 的 develpment 组中引用相关的 gem：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">group <span class="symbol">:development</span> <span class="keyword">do</span></span><br><span class="line">  <span class="comment"># If you need to use rspec, please replace this by 'guard-rspec'.</span></span><br><span class="line">  gem <span class="string">'guard'</span></span><br><span class="line">  <span class="comment"># Use for notify on Mac OS X, you must install growl and growlnotify before.</span></span><br><span class="line">  gem <span class="string">'growl'</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>如上面的代码所示，一般情况下，我们在 Rails 开发时，主要使用 Guard 配合 RSpec 来进行实时集成测试，所以可以直接使用 <strong><em>guard-rspec</em></strong> 来代替 <strong><em>guard</em></strong> 。</p>
+<p>另外，<strong><em>growl</em></strong> 这个 gem 是用来配合 Mac OS X 平台下的 <a href="http://growl.info/" title="Growl" target="_blank" rel="noopener">Growl</a> 通知程序来提供消息通知的（<strong><em>如果您使用的是 Linux 发行版，比如 Ubuntu，那么 Guard 会很好的自动识别并调用相应的通知中心。</em></strong>），你必须安装 <a href="http://growl.info/downloads" title="Download Growl" target="_blank" rel="noopener">Growl</a> 和 <a href="http://growl.cachefly.net/GrowlNotify-2.0.zip" title="Download GrowlNotify" target="_blank" rel="noopener">GrowlNotify</a> 才能生效。</p>
+<p>其中 <strong>Growl</strong> 需要从 App Store 中付费下载，不贵，而如果您不喜欢用上面链接中的压缩包安装 <strong>GrowlNotify</strong> 的话，您可以考虑使用 <a href="http://mxcl.github.io/homebrew/" title="Homebrew" target="_blank" rel="noopener">Homebrew</a> + <a href="https://github.com/phinze/homebrew-cask" title="Homebrew-Cask" target="_blank" rel="noopener">Homebrew-Cask</a> 来方便快速的安装：</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="keyword">brew </span>cask <span class="keyword">install </span>growlnotify</span><br></pre></td></tr></table></figure>
+<p>另外可能您在很多相关教程中看到使用 Guard 还要引入 <strong><em>rb-fsevent</em></strong>、<strong><em>rb-inotify</em></strong>、<strong><em>rb-fchange</em></strong> 这三个 gem 来捕获不同平台下的文件系统事件，但是当前版本 Guard 自身已经使用了 <strong><em>listen</em></strong> 来<a href="https://github.com/guard/guard/wiki/Efficient-Filesystem-Handling" title="Efficient Filesystem Handling" target="_blank" rel="noopener">替代</a>了它们，所以已经完全不需要再引用他们了。</p>
+<p><strong>有关 Guard 的更详细信息请查看 <a href="https://github.com/guard/guard/wiki" title="Guard Wiki" target="_blank" rel="noopener">Guard Wiki</a>。</strong></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://blog.huhao.name/2013/06/05/use-guard-in-rails-project/" data-id="cjefeb8ig000t6zu6y50lk633" class="article-share-link">分享</a>
+      
+        <a href="http://blog.huhao.name/2013/06/05/use-guard-in-rails-project/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Guard/">Guard</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2013/06/08/a-reply-from-michael-hartl/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          来自《RailsTutorial》作者 Michael Hartl 的回信
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2013/06/04/a-new-start/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">新的开始</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Ruby/">Ruby</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/从士兵到程序员/">从士兵到程序员</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/学习/">学习</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/工具/">工具</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/聚会/">聚会</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/随笔/">随笔</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Atom/">Atom</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Code-School/">Code School</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Freelancer/">Freelancer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Guard/">Guard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Octopress/">Octopress</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Vim/">Vim</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Xi-an-Rubyists-Party/">Xi'an Rubyists Party</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/生日/">生日</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Atom/" style="font-size: 10px;">Atom</a> <a href="/tags/Code-School/" style="font-size: 10px;">Code School</a> <a href="/tags/Freelancer/" style="font-size: 20px;">Freelancer</a> <a href="/tags/Guard/" style="font-size: 15px;">Guard</a> <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Octopress/" style="font-size: 15px;">Octopress</a> <a href="/tags/Vim/" style="font-size: 10px;">Vim</a> <a href="/tags/Xi-an-Rubyists-Party/" style="font-size: 10px;">Xi'an Rubyists Party</a> <a href="/tags/生日/" style="font-size: 10px;">生日</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/12/">十二月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/06/">六月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/03/">三月 2014</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/12/">十二月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/09/">九月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/08/">八月 2013</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/06/">六月 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2014/12/11/markdown-writer-for-atom/">Markdown神器推荐：Markdown-Writer for Atom</a>
+          </li>
+        
+          <li>
+            <a href="/2014/12/04/from-octopress-to-hexo/">从Octopress到Hexo</a>
+          </li>
+        
+          <li>
+            <a href="/2014/06/24/age-30/">30岁</a>
+          </li>
+        
+          <li>
+            <a href="/2014/03/01/become-a-freelancer-3/">从士兵到程序员再到SOHO程序员 (三) - 游击战与阻力</a>
+          </li>
+        
+          <li>
+            <a href="/2013/12/13/become-a-freelancer-2/">从士兵到程序员再到SOHO程序员 (二) - 求职</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2018 Hao Hu (胡皓)<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">存档</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'huhao';
+  
+  var disqus_url = 'http://blog.huhao.name/2013/06/05/use-guard-in-rails-project/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
